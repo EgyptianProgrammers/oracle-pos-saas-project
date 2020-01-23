@@ -1,2 +1,2 @@
-# oracle-pos-saas-project
-Oracle POS SaaS Project
+# Oracle POS SaaS Project
+Oracle POS solution integrated with Oracle fusion applications
