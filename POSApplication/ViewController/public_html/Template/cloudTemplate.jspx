@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>cloudTemplate</display-name>
+ <facet>
+          <description>center</description>
+          <facet-name>center</facet-name>
+        </facet>
+      </component>
+    </af:xmlContent>
+    <af:panelGridLayout id="pt_pgl2">
+      <af:gridRow marginTop="0px" height="auto" id="pt_gr3">
+        <af:gridCell marginStart="50px" marginEnd="50px" width="100%"
+                     id="pt_gc1" halign="stretch" valign="middle">
+          <af:panelGridLayout id="pt_pgl3" dimensionsFrom="children">
+            <af:gridRow marginTop="10px" marginBottom="0px" height="auto"
+                        id="pt_gr4">
+              <af:gridCell marginStart="0px" width="50%" id="pt_gc5"
+                           marginEnd="0px">
+                <af:image source="/images/logo.png" shortDesc="logo"
+                          id="pt_i1" styleClass="logo_"/>
+              </af:gridCell>
+              <af:gridCell marginStart="0px" marginEnd="0px" width="50%"
+                           id="pt_gc6" halign="end" valign="middle"
+                           styleClass="top_menu">
+                <af:menuBar id="menuBar1">
+                  <af:spacer width="350" height="0" id="pt_s2"/>
+                  <af:commandMenuItem text="Home"
+                                      id="commandMenuItem3"
+                                      visible="false"/>
+                  <af:commandMenuItem text="link example"
+                                      id="commandMenuItem2" visible="false"/>
+                  <af:commandMenuItem text="link example"
+                                      id="commandMenuItem1" visible="false"/>
+                  <af:menu text="#{PersonInfo.fullName}" id="menu6">
+                    <af:commandMenuItem text="Logout" id="pt_cmi2"
+                                        action="login"/>
+                    <af:commandMenuItem text="Submenu link" id="pt_cmi3"/>
+                  </af:menu>
+                  <af:spacer width="10" height="10" id="pt_s1"/>
+                </af:menuBar>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" height="auto" id="pt_gr2">
+        <af:gridCell marginStart="50px" marginEnd="50px" width="100%"
+                     id="pt_gc2" halign="stretch">
+          <af:panelGroupLayout id="pt_pgl4" layout="horizontal" halign="center"
+                               styleClass="nav_container">
+            <af:commandLink id="pt_cl1" action="businessTrip">
+              <af:panelGroupLayout id="pt_pgl5" styleClass="nav_item item_1"
+                                   layout="vertical" halign="center">
+                <af:image id="pt_i2"
+                          styleClass="nav_img" source="/images/01.png"/>
+              </af:panelGroupLayout>
+              <af:outputText value="Business Trip" id="pt_ot1"/>
+            </af:commandLink>
+            <af:commandLink id="commandLink1">
+              <af:panelGroupLayout id="panelGroupLayout1"
+                                   styleClass="nav_item item_2"
+                                   layout="vertical" halign="center">
+                <af:image source="/images/02.png" id="image1"
+                          styleClass="nav_img item_2"/>
+              </af:panelGroupLayout>
+              <af:outputText value="Setup 2" id="outputText1"/>
+            </af:commandLink>
+            <af:commandLink id="commandLink2" action="goReports">
+              <af:panelGroupLayout id="panelGroupLayout2"
+                                   styleClass="nav_item item_3"
+                                   layout="vertical" halign="center">
+                <af:image source="/images/03.png" id="image2"
+                          styleClass="nav_img"/>
+              </af:panelGroupLayout>
+              <af:outputText value="Reports" id="outputText2"/>
+            </af:commandLink>
+            <af:commandLink id="commandLink3">
+              <af:panelGroupLayout id="panelGroupLayout3"
+                                   styleClass="nav_item item_4"
+                                   layout="vertical" halign="center">
+                <af:image source="/images/04.png" id="image3"
+                          styleClass="nav_img"/>
+              </af:panelGroupLayout>
+              <af:outputText value="Setup 4" id="outputText3"/>
+            </af:commandLink>
+            <af:commandLink id="commandLink4" action="setUp">
+              <af:panelGroupLayout id="panelGroupLayout4"
+                                   styleClass="nav_item item_4"
+                                   layout="vertical" halign="center">
+                <af:image source="/images/setup-folder-icon.png" id="image4"
+                          styleClass="nav_img"/>
+              </af:panelGroupLayout>
+              <af:outputText value="Setup" id="outputText4"/>
+            </af:commandLink>
+          </af:panelGroupLayout>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="0px" marginBottom="5px" height="auto" id="pt_gr1">
+        <af:gridCell marginStart="5px" marginEnd="5px" width="auto"
+                     id="pt_gc3" halign="stretch" styleClass="AFStretchWidth">
+          <af:panelGroupLayout layout="vertical" id="pt_pgl1">
+            <af:facetRef facetName="center"/>
+          </af:panelGroupLayout>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
+    <af:panelStretchLayout topHeight="50px" id="pt_psl1" rendered="false">
+      <f:facet name="top">
+        <af:menuBar id="pt_mb1">
+          <af:menu text="menu 1" id="pt_m1">
+            <af:commandMenuItem text="commandMenuItem 1" id="pt_cmi1"/>
+          </af:menu>
+        </af:menuBar>
+      </f:facet>
+      <f:facet name="center">
+        <!-- id="af_one_column_header_scroll"   -->
+        <af:decorativeBox theme="dark" id="pt_db2">
+          <f:facet name="center">
+            <af:decorativeBox theme="medium" id="pt_db1">
+              <f:facet name="center"/>
+            </af:decorativeBox>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+    </af:panelStretchLayout>
+  </af:pageTemplateDef>
+</jsp:root>

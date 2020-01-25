@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="com.css.pos.model.service.MainModule">
+    <AppModuleConfig name="MainModuleLocal" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.MainModule" DeployPlatform="LOCAL">
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.MainModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="MainModuleShared" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.MainModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.MainModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+  <AppModuleConfigBag ApplicationName="com.css.pos.model.service.AdminModule">
+    <AppModuleConfig name="AdminModuleLocal" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.AdminModule" DeployPlatform="LOCAL">
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.AdminModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AdminModuleShared" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.AdminModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.AdminModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+  <AppModuleConfigBag ApplicationName="com.css.pos.model.service.POSModule">
+    <AppModuleConfig name="POSModuleLocal" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.POSModule" DeployPlatform="LOCAL">
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.POSModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="POSModuleShared" jbo.project="com.css.pos.model.Model"
+                     ApplicationName="com.css.pos.model.service.POSModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database JDBCDataSource="java:comp/env/jdbc/POSConnDS"/>
+      <Security AppModuleJndiName="com.css.pos.model.service.POSModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

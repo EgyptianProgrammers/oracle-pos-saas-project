@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MainModule"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.css.pos.model.service.MainModule_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <AppModuleUsage
+    Name="AdminModule"
+    FullName="com.css.pos.model.service.AdminModule"
+    SharedScope="0"/>
+  <AppModuleUsage
+    Name="POSModule"
+    FullName="com.css.pos.model.service.POSModule"
+    SharedScope="0"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.css.pos.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>
