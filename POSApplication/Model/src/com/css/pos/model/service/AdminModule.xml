@@ -6,13 +6,31 @@
   Name="AdminModule"
   Version="12.2.1.9.14"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="com.css.pos.model.service.AdminModuleImpl"
+  ComponentInterface="com.css.pos.model.service.common.AdminModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
         ResId="com.css.pos.model.service.AdminModule_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewUsage
+    Name="PosIntCountriesUPView"
+    ViewObjectName="com.css.pos.model.views.up.PosIntCountriesUPView"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="clearCountriesData"
+      MethodName="clearCountriesData">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.css.pos.model.ModelBundle"/>

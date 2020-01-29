@@ -4,23 +4,14 @@
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view>
     <af:document title="Test.jspx" id="d1">
+      <af:messages id="m1"/>
       <af:form id="f1">
         <af:pageTemplate viewId="/Template/cloudTemplate.jspx" id="pt1">
           <f:facet name="center">
-            <af:panelBox text="PanelBox1" id="pb1">
-              <f:facet name="toolbar"/>
-              <af:panelFormLayout id="pfl1" rows="2">
-                <f:facet name="footer">
-                  <af:button text="button 1" id="b1"/>
-                </f:facet>
-                <af:inputText label="Label 1" id="it1"/>
-                <af:inputText label="Label 1" id="it2"/>
-                <af:inputText label="Label 1" id="it3"/>
-                <af:inputText label="Label 1" id="it4"/>
-              </af:panelFormLayout>
-            </af:panelBox>
+            <af:region value="#{bindings.CountriesTF1.regionModel}" id="r1"/>
           </f:facet>
         </af:pageTemplate>
+
       </af:form>
     </af:document>
   </f:view>

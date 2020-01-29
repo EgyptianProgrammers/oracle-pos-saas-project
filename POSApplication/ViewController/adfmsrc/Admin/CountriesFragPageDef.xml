@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="CountriesFragPageDef"
+                Package="Admin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="PosIntCountriesUPViewIterator" Binds="AdminModule.PosIntCountriesUPView"
+              DataControl="MainModuleDataControl" RangeSize="25"/></executables>
+  <bindings>
+    <action id="Commit" DataControl="MainModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+<tree IterBinding="PosIntCountriesUPViewIterator" id="PosIntCountriesUPView">
+      <nodeDefinition DefName="com.css.pos.model.views.up.PosIntCountriesUPView" Name="PosIntCountriesUPView0">
+        <AttrNames>
+          <Item Value="CountryCode"/>
+          <Item Value="CurrencyCode"/>
+          <Item Value="CountryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="clearCountriesData" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="clearCountriesData" IsViewObjectMethod="false" DataControl="MainModuleDataControl"
+                  InstanceName="MainModuleDataControl.dataProvider.Root.AdminModule"/>
+  </bindings>
+</pageDefinition>

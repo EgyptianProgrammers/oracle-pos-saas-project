@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Countries Data" id="pb1">
+    <f:facet name="toolbar"/>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button text="Sync" id="b1" action="#{pageFlowScope.CountriesMBean.sync_action}"/>
+          <af:button text="Clear" id="b2" action="#{pageFlowScope.CountriesMBean.clearData_action}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.PosIntCountriesUPView.collectionModel}" var="row"
+                rows="#{bindings.PosIntCountriesUPView.rangeSize}"
+                emptyText="#{bindings.PosIntCountriesUPView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                fetchSize="#{bindings.PosIntCountriesUPView.rangeSize}" id="t1">
+        <af:column headerText="#{bindings.PosIntCountriesUPView.hints.CountryCode.label}" id="c1">
+          <af:outputText value="#{row.CountryCode}"
+                         shortDesc="#{bindings.PosIntCountriesUPView.hints.CountryCode.tooltip}" id="ot1"/>
+        </af:column>
+        <af:column headerText="#{bindings.PosIntCountriesUPView.hints.CurrencyCode.label}" id="c2">
+          <af:outputText value="#{row.CurrencyCode}"
+                         shortDesc="#{bindings.PosIntCountriesUPView.hints.CurrencyCode.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.PosIntCountriesUPView.hints.CountryName.label}" id="c3">
+          <af:outputText value="#{row.CountryName}"
+                         shortDesc="#{bindings.PosIntCountriesUPView.hints.CountryName.tooltip}" id="ot3"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelBox>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:CountriesMBean-->
+</jsp:root>

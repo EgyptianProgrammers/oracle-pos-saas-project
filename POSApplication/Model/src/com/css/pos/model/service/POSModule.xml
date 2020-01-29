@@ -13,6 +13,9 @@
         ResId="com.css.pos.model.service.POSModule_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewUsage
+    Name="PosWarehousesROView1"
+    ViewObjectName="com.css.pos.model.views.ro.PosWarehousesROView"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.css.pos.model.ModelBundle"/>
