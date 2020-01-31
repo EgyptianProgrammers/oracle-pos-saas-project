@@ -12,15 +12,18 @@
   BindingStyle="OracleName">
   <Attribute
     Name="StoreId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="STORE_ID"
     SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="POS_STORES"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="CountryCode"
     Precision="3"

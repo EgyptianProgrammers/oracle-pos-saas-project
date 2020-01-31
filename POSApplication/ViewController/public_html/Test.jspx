@@ -8,7 +8,7 @@
       <af:form id="f1">
         <af:pageTemplate viewId="/Template/cloudTemplate.jspx" id="pt1">
           <f:facet name="center">
-            <af:region value="#{bindings.CountriesTF1.regionModel}" id="r1"/>
+            <af:region value="#{bindings.StoresTF1.regionModel}" id="r1"/>
           </f:facet>
         </af:pageTemplate>
 

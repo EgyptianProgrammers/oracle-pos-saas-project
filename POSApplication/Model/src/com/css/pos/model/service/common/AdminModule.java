@@ -7,5 +7,7 @@ import oracle.jbo.ApplicationModule;
 // ---------------------------------------------------------------------
 public interface AdminModule extends ApplicationModule {
     void clearCountriesData();
+
+    void clearVOData(String voName);
 }
 

@@ -9,10 +9,12 @@
   <pageMap>
     <page path="/Test.jspx" usageId="com_css_pos_view_TestPageDef"/>
     <page path="/Admin/CountriesFrag.jsff" usageId="com_css_pos_view_CountriesFragPageDef"/>
+    <page path="/Admin/SearchStores.jsff" usageId="com_css_pos_view_SearchStoresPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_css_pos_view_TestPageDef" path="com.css.pos.view.pageDefs.TestPageDef"/>
     <page id="com_css_pos_view_CountriesFragPageDef" path="Admin.CountriesFragPageDef"/>
+    <page id="com_css_pos_view_SearchStoresPageDef" path="Admin.SearchStoresPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="MainModuleDataControl" Package="com.css.pos.model.service"

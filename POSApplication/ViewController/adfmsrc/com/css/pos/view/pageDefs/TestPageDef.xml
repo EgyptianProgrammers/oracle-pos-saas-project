@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="CountriesTF1" taskFlowId="/WEB-INF/AdminTF/Countries-TF.xml#Countries-TF" activation="deferred"
+    <taskFlow id="StoresTF1" taskFlowId="/WEB-INF/AdminTF/Stores-TF.xml#Stores-TF" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
