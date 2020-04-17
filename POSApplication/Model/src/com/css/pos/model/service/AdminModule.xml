@@ -21,6 +21,27 @@
   <ViewUsage
     Name="PosIntCountriesUPView"
     ViewObjectName="com.css.pos.model.views.up.PosIntCountriesUPView"/>
+  <ViewUsage
+    Name="PosStoreUPView"
+    ViewObjectName="com.css.pos.model.views.up.PosStoreUPView"/>
+  <ViewUsage
+    Name="PosStoreBranchUPView1"
+    ViewObjectName="com.css.pos.model.views.up.PosStoreBranchUPView"/>
+  <ViewUsage
+    Name="PosWarehouseUPView2"
+    ViewObjectName="com.css.pos.model.views.up.PosWarehouseUPView"/>
+  <ViewLinkUsage
+    Name="PosStoreBranchsUPFk1Link1"
+    ViewLinkObjectName="com.css.pos.model.views.vLinks.PosStoreBranchsUPFk1Link"
+    SrcViewUsageName="com.css.pos.model.service.AdminModule.PosStoreUPView"
+    DstViewUsageName="com.css.pos.model.service.AdminModule.PosStoreBranchUPView1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="PosWarehousesUPFk1Link1"
+    ViewLinkObjectName="com.css.pos.model.views.vLinks.PosWarehousesUPFk1Link"
+    SrcViewUsageName="com.css.pos.model.service.AdminModule.PosStoreBranchUPView1"
+    DstViewUsageName="com.css.pos.model.service.AdminModule.PosWarehouseUPView2"
+    Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method
@@ -29,6 +50,16 @@
       <Return
         Name="_return_type_"
         Type="void"/>
+    </Method>
+    <Method
+      Name="clearVOData"
+      MethodName="clearVOData">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="voName"
+        Type="java.lang.String"/>
     </Method>
   </ClientInterface>
   <ResourceBundle>

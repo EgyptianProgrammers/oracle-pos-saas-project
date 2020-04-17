@@ -13,6 +13,30 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="OrganizationROView"
+    ViewObjectName="com.css.pos.model.views.ro.OrganizationROView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OrganizationId"
+    ListVOName="OrganizationROView"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrganizationId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationName"/>
+      <Item Value="OrganizationCode"/>
+      <Item Value="LegalEntityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="PosWarehouse"
     Entity="com.css.pos.model.entities.PosWarehouse"/>
@@ -22,7 +46,8 @@
     PrecisionRule="true"
     EntityAttrName="WarehouseId"
     EntityUsage="PosWarehouse"
-    AliasName="WAREHOUSE_ID"/>
+    AliasName="WAREHOUSE_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="BranchId"
     IsNotNull="true"
@@ -57,7 +82,15 @@
     PrecisionRule="true"
     EntityAttrName="OrganizationId"
     EntityUsage="PosWarehouse"
-    AliasName="ORGANIZATION_ID"/>
+    AliasName="ORGANIZATION_ID"
+    LOVName="LOV_OrganizationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EnabledFlag"
     PrecisionRule="true"
@@ -90,7 +123,8 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="PosWarehouse"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -104,12 +138,14 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="PosWarehouse"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionId"
     EntityUsage="PosWarehouse"
-    AliasName="OBJECT_VERSION_ID"/>
+    AliasName="OBJECT_VERSION_ID"
+    IsUpdateable="false"/>
 </ViewObject>

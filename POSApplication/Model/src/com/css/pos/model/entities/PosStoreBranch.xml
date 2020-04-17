@@ -12,13 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="BranchId"
-    IsNotNull="true"
     ColumnName="BRANCH_ID"
     SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="POS_STORE_BRANCHS"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="StoreId"
     IsNotNull="true"

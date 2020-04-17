@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelBox text="PosStore" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.PosStoreUPViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.PosStoreUPViewCriteriaQuery.queryModel}"
+                queryListener="#{bindings.PosStoreUPViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.PosStoreUPViewCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelBox>
+    <af:table value="#{bindings.PosStoreUPView.collectionModel}" var="row" rows="#{bindings.PosStoreUPView.rangeSize}"
+              emptyText="#{bindings.PosStoreUPView.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.PosStoreUPView.collectionModel.selectedRow}"
+              selectionListener="#{bindings.PosStoreUPView.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.PosStoreUPView.rangeSize}" id="resId1">
+      <af:column headerText="#{bindings.PosStoreUPView.hints.CountryCode.label}" id="resId1c1">
+        <af:outputText value="#{row.CountryCode}" shortDesc="#{bindings.PosStoreUPView.hints.CountryCode.tooltip}"
+                       id="ot1"/>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.ShortName.label}" id="resId1c2">
+        <af:outputText value="#{row.ShortName}" shortDesc="#{bindings.PosStoreUPView.hints.ShortName.tooltip}"
+                       id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.Name.label}" id="resId1c3">
+        <af:outputText value="#{row.Name}" shortDesc="#{bindings.PosStoreUPView.hints.Name.tooltip}" id="ot3"/>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.Description.label}" id="resId1c4">
+        <af:outputText value="#{row.Description}" shortDesc="#{bindings.PosStoreUPView.hints.Description.tooltip}"
+                       id="ot4"/>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.EnabledFlag.label}" id="resId1c5">
+        <af:outputText value="#{row.EnabledFlag}" shortDesc="#{bindings.PosStoreUPView.hints.EnabledFlag.tooltip}"
+                       id="ot5"/>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.StartDate.label}" id="resId1c6">
+        <af:outputText value="#{row.StartDate}" shortDesc="#{bindings.PosStoreUPView.hints.StartDate.tooltip}" id="ot6">
+          <af:convertDateTime pattern="#{bindings.PosStoreUPView.hints.StartDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column headerText="#{bindings.PosStoreUPView.hints.EndDate.label}" id="resId1c7">
+        <af:outputText value="#{row.EndDate}" shortDesc="#{bindings.PosStoreUPView.hints.EndDate.tooltip}" id="ot7">
+          <af:convertDateTime pattern="#{bindings.PosStoreUPView.hints.EndDate.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

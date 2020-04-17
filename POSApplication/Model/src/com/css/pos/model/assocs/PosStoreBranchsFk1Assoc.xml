@@ -13,7 +13,10 @@
     Name="PosStore"
     Cardinality="1"
     Source="true"
-    Owner="com.css.pos.model.entities.PosStore">
+    Owner="com.css.pos.model.entities.PosStore"
+    CascadeDelete="true"
+    LockLevel="NONE"
+    CascadeUpdate="true">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
@@ -28,7 +31,8 @@
   <AssociationEnd
     Name="PosStoreBranch"
     Cardinality="-1"
-    Owner="com.css.pos.model.entities.PosStoreBranch">
+    Owner="com.css.pos.model.entities.PosStoreBranch"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>

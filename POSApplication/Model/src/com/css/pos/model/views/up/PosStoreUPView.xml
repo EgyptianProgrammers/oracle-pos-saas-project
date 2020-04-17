@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="CountryROView"
+    ViewObjectName="com.css.pos.model.views.ro.CountryROView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CountryCode"
+    ListVOName="CountryROView"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CountryCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CountryCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CountryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="PosStore"
     Entity="com.css.pos.model.entities.PosStore"/>
@@ -22,13 +44,22 @@
     PrecisionRule="true"
     EntityAttrName="StoreId"
     EntityUsage="PosStore"
-    AliasName="STORE_ID"/>
+    AliasName="STORE_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CountryCode"
     PrecisionRule="true"
     EntityAttrName="CountryCode"
     EntityUsage="PosStore"
-    AliasName="COUNTRY_CODE"/>
+    AliasName="COUNTRY_CODE"
+    LOVName="LOV_CountryCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ShortName"
     IsUnique="true"
@@ -81,7 +112,8 @@
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="PosStore"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     IsNotNull="true"
@@ -95,14 +127,106 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdateDate"
     EntityUsage="PosStore"
-    AliasName="LAST_UPDATE_DATE"/>
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ObjectVersionId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="ObjectVersionId"
     EntityUsage="PosStore"
-    AliasName="OBJECT_VERSION_ID"/>
+    AliasName="OBJECT_VERSION_ID"
+    IsUpdateable="false"/>
+  <ViewCriteria
+    Name="PosStoreUPViewCriteria"
+    ViewObjectName="com.css.pos.model.views.up.PosStoreUPView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PosStoreUPViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PosStoreUPViewCriteria_PosStoreUPViewCriteria_row_0_CountryCode"
+        ViewAttribute="CountryCode"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Name"
+        ViewAttribute="Name"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PosStoreBranchUPView"
+        ViewAttribute="PosStoreBranchUPView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="PosStoreBranchUPViewNestedCriteria"
+          ViewObjectName="com.css.pos.model.views.up.PosStoreBranchUPView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="PosStoreBranchUPViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Name"
+              ViewAttribute="Name"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=""
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="PosWarehouseUPView"
+              ViewAttribute="PosWarehouseUPView"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="PosWarehouseUPViewNestedCriteria"
+                ViewObjectName="com.css.pos.model.views.up.PosWarehouseUPView"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="PosWarehouseUPViewNestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="OrganizationId"
+                    ViewAttribute="OrganizationId"
+                    Operator="="
+                    Conjunction="AND"
+                    Value=""
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="PosStoreBranchUPView"
     ViewLink="com.css.pos.model.views.vLinks.PosStoreBranchsUPFk1Link"
